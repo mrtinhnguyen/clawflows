@@ -518,6 +518,51 @@
   .panel-run-date { color: var(--text-muted); min-width: 90px; }
   .panel-run-time { font-family: var(--mono); color: var(--text-secondary); font-weight: 500; }
   .panel-runs-more { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+  /* ── Single workflow share modal ── */
+  .wf-share-overlay {
+    position: fixed; inset: 0; background: rgba(4,8,14,.7);
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    z-index: 400; opacity: 0; pointer-events: none; transition: opacity .2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .wf-share-overlay.open { opacity: 1; pointer-events: auto; }
+  .wf-share-modal {
+    background: var(--bg-surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px; width: min(520px, 90vw);
+    transform: scale(.95); transition: transform .2s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 16px 48px rgba(0,0,0,.5);
+  }
+  .wf-share-overlay.open .wf-share-modal { transform: scale(1); }
+  .wf-share-title { font-size: 18px; font-weight: 700; color: #eef2f6; margin-bottom: 16px; }
+  .wf-share-preview { margin-bottom: 16px; }
+  .wf-share-preview img {
+    width: 100%; border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .wf-share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .wf-share-img-card {
+    position: fixed; left: -9999px; top: -9999px;
+    width: 600px; padding: 40px;
+    background: linear-gradient(145deg, #0d1117 0%, #111820 50%, #0f1923 100%);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    color: #d4dee8;
+  }
+  .wf-share-img-emoji { font-size: 48px; margin-bottom: 12px; }
+  .wf-share-img-name { font-size: 24px; font-weight: 700; color: #eef2f6; margin-bottom: 6px; }
+  .wf-share-img-desc { font-size: 15px; color: #6b8299; margin-bottom: 24px; line-height: 1.5; }
+  .wf-share-img-install {
+    background: #0a0e14; border: 1px solid #1e2d3d; border-radius: 8px;
+    padding: 14px 16px; font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: #6b8299; word-break: break-all;
+  }
+  .wf-share-img-install span { color: #3fb950; }
+  .wf-share-img-footer {
+    margin-top: 24px; padding-top: 16px;
+    border-top: 1px solid #1e2d3d;
+    font-size: 12px; color: #455568;
+    display: flex; justify-content: space-between;
+  }
 </style>
 </head>
 <body>
@@ -594,6 +639,24 @@
     <div class="create-actions">
       <button class="create-cancel" id="createCancel">Cancel</button>
       <button class="create-submit" id="createSubmit">Create</button>
+    </div>
+  </div>
+</div>
+
+<div class="wf-share-overlay" id="wfShareOverlay">
+  <div class="wf-share-modal">
+    <div class="wf-share-title" id="wfShareTitle">Share Workflow</div>
+    <div class="wf-share-preview" id="wfSharePreview"><div class="loading">Generating image</div></div>
+    <div class="wf-share-btns">
+      <button class="share-btn dl-btn" id="wfShareDl">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Image</button>
+      <button class="share-btn copy-btn" id="wfShareCopy">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Text</button>
+      <a class="share-btn x-btn" id="wfShareX" href="#" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Post on X</a>
     </div>
   </div>
 </div>
@@ -1017,6 +1080,7 @@ function openPanel(name) {
     cmds += '<button class="cmd enable-cmd" data-action="enable" data-wf="' + esc(w.name) + '">enable</button>';
   }
   cmds += '<button class="cmd" onclick="editWorkflow(\'' + esc(w.name) + '\')">edit</button>';
+  cmds += '<button class="cmd" onclick="openWfShare(\'' + esc(w.name) + '\')">share</button>';
   document.getElementById('pCmds').innerHTML = cmds;
   refreshPanelRuns(name);
   document.getElementById('pBody').innerHTML = renderMd(w.content || '');
@@ -1034,7 +1098,8 @@ document.getElementById('overlay').addEventListener('click', closePanel);
 document.getElementById('pClose').addEventListener('click', closePanel);
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-    if (document.getElementById('createOverlay').classList.contains('open')) closeCreate();
+    if (document.getElementById('wfShareOverlay').classList.contains('open')) closeWfShare();
+    else if (document.getElementById('createOverlay').classList.contains('open')) closeCreate();
     else closePanel();
   }
 });
@@ -1215,6 +1280,94 @@ document.addEventListener('click', function(e) {
   var runItem = e.target.closest('.run-item');
   if (!runItem) return;
   openPanel(runItem.dataset.runWf);
+});
+
+// ── Single workflow share modal ──
+var wfShareBlob = null;
+var wfShareText = '';
+
+function openWfShare(name) {
+  var w = findWorkflow(name);
+  if (!w) return;
+
+  wfShareBlob = null;
+  wfShareText = '';
+
+  document.getElementById('wfShareTitle').textContent = 'Share ' + (w.emoji || '') + ' ' + w.name;
+  document.getElementById('wfSharePreview').innerHTML = '<div class="loading">Generating image</div>';
+
+  var tweetText = encodeURIComponent((w.emoji ? w.emoji + ' ' : '') + w.name + (w.description ? ' — ' + w.description : '') + '\n\nhttps://github.com/davehappyminion/clawflows');
+  document.getElementById('wfShareX').href = 'https://x.com/intent/tweet?text=' + tweetText;
+
+  document.getElementById('wfShareOverlay').classList.add('open');
+
+  // Fetch share text from CLI
+  fetch('/api/share/' + encodeURIComponent(name))
+    .then(function(r) { return r.json(); })
+    .then(function(data) { if (data.ok) wfShareText = data.text; })
+    .catch(function() {});
+
+  // Build off-screen render card
+  var card = document.getElementById('wf-share-img-card');
+  if (card) card.remove();
+  card = document.createElement('div');
+  card.id = 'wf-share-img-card';
+  card.className = 'wf-share-img-card';
+  card.innerHTML =
+    '<div class="share-img-logo"><span class="claw">Claw</span><span class="flows">Flows</span></div>' +
+    '<div class="wf-share-img-emoji">' + (w.emoji || '') + '</div>' +
+    '<div class="wf-share-img-name">' + esc(w.name) + '</div>' +
+    '<div class="wf-share-img-desc">' + esc(w.description) + '</div>' +
+    '<div class="wf-share-img-install"><span>clawflows enable</span> ' + esc(w.name) + '</div>' +
+    '<div class="wf-share-img-footer"><span>github.com/davehappyminion/clawflows</span></div>';
+  document.body.appendChild(card);
+
+  if (typeof html2canvas !== 'undefined') {
+    setTimeout(function() {
+      html2canvas(card, { backgroundColor: null, scale: 2 }).then(function(canvas) {
+        canvas.toBlob(function(blob) {
+          wfShareBlob = blob;
+          var url = URL.createObjectURL(blob);
+          document.getElementById('wfSharePreview').innerHTML =
+            '<img src="' + url + '" alt="' + esc(w.name) + ' share image">';
+        }, 'image/png');
+      });
+    }, 100);
+  } else {
+    document.getElementById('wfSharePreview').innerHTML =
+      '<div style="padding:20px;text-align:center;color:var(--text-muted);font-size:13px">Image generation unavailable</div>';
+  }
+}
+
+function closeWfShare() {
+  document.getElementById('wfShareOverlay').classList.remove('open');
+}
+
+document.getElementById('wfShareOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeWfShare();
+});
+
+document.getElementById('wfShareDl').addEventListener('click', function() {
+  if (!wfShareBlob) { toast('Image not ready yet'); return; }
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(wfShareBlob);
+  a.download = 'clawflows-workflow.png';
+  a.click();
+  toast('Image downloaded!');
+});
+
+document.getElementById('wfShareCopy').addEventListener('click', function() {
+  if (!wfShareText) { toast('Loading...'); return; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(wfShareText).then(function() { toast('Copied to clipboard!'); });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = wfShareText; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    toast('Copied to clipboard!');
+  }
 });
 
 // Reload data when user switches back to the browser (e.g. after editing in VS Code)

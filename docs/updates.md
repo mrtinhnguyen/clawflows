@@ -1,5 +1,9 @@
 # Updates
 
+## Tue, Mar 4
+
+- 📤 **Share a single workflow** — `clawflows share <name>` generates shareable text with the workflow's emoji, name, description, and a one-liner install+enable command. Add `--copy` to yeet it straight to your clipboard. The dashboard detail panel also has a shiny Share button that renders a shareable image card, lets you download it, copy the text, or post on X. One banana at a time, shared with the world! 🍌
+
 ## Mon, Feb 24
 
 - 📊 **Run history in the dashboard** — The dashboard now has a Run History tab showing when your workflows actually ran! See all runs grouped by date (newest first), click any to open the workflow detail panel, and each workflow's panel now shows its 5 most recent runs. It's like a banana-flavored activity feed for your workflows 🍌

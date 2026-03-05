@@ -107,6 +107,18 @@ const server = http.createServer(function (req, res) {
     return;
   }
 
+  // GET /api/share/<name> — shareable text for a single workflow
+  var shareMatch = req.method === 'GET' && req.url.match(/^\/api\/share\/([a-zA-Z0-9_-]+)$/);
+  if (shareMatch) {
+    var sname = shareMatch[1];
+    runCli(['share', sname], function (err, out) {
+      if (err) { res.writeHead(500); res.end(JSON.stringify({ error: out })); return; }
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: true, text: (out || '').trim() }));
+    });
+    return;
+  }
+
   // POST /api/create — create a new workflow from JSON body
   if (req.method === 'POST' && req.url === '/api/create') {
     var body = '';

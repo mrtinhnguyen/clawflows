@@ -78,6 +78,10 @@ cmd_help() {
     validate <name>      Check a workflow has required fields
     submit <name>        Submit a custom workflow for community review
 
+  📤 Sharing
+    share <name>         Show shareable text for a workflow
+    share <name> --copy  Copy share text to clipboard (macOS)
+
   💾 Backup
     backup               Back up custom workflows and enabled list
     restore              Restore from a backup
@@ -706,13 +710,19 @@ _build_block() {
   lines+=("- \`clawflows open <name>\` — open a workflow in your editor")
   lines+=("- \`clawflows validate <name>\` — check a workflow has required fields")
   lines+=("- \`clawflows submit <name>\` — submit a custom workflow for community review")
+  lines+=("- \`clawflows share <name>\` — generate shareable text for a workflow (emoji, name, description, install command)")
   lines+=("- \`clawflows backup\` — back up custom workflows and enabled list")
   lines+=("- \`clawflows restore\` — restore from a backup")
   lines+=("- \`clawflows update\` — pull the latest community workflows. **After running, re-read your AGENTS.md** to pick up new instructions")
   lines+=("- \`clawflows sync-agent\` — refresh your agent's workflow list in AGENTS.md")
   lines+=("")
   lines+=("### Sharing Workflows")
-  lines+=("When the user wants to share or submit a workflow to the community:")
+  lines+=("When the user wants to share a workflow with someone:")
+  lines+=("- \`clawflows share <name>\` — generates shareable text with the workflow's emoji, name, description, and install command")
+  lines+=("- \`clawflows share <name> --copy\` — same but copies to clipboard (macOS)")
+  lines+=("- The dashboard also has a Share button in each workflow's detail panel")
+  lines+=("")
+  lines+=("When the user wants to submit a workflow to the community:")
   lines+=("1. Create the workflow: \`clawflows create\`")
   lines+=("2. Test it: \`clawflows run <name>\`")
   lines+=("3. Submit it: \`clawflows submit <name>\`")
@@ -1099,6 +1109,47 @@ cmd_submit() {
   echo ""
 }
 
+cmd_share() {
+  local name="${1:-}"
+  local copy_flag="${2:-}"
+
+  [ -n "$name" ] || die "usage: clawflows share <name>"
+
+  # Handle --copy as first or second arg
+  if [ "$name" = "--copy" ]; then
+    die "usage: clawflows share <name> [--copy]"
+  fi
+
+  local source_dir
+  source_dir="$(_find_workflow "$name")"
+  [ -n "$source_dir" ] || die "workflow '$name' not found"
+
+  local wf_file="$source_dir/WORKFLOW.md"
+  [ -f "$wf_file" ] || die "WORKFLOW.md not found at $wf_file"
+
+  local emoji desc
+  emoji="$(get_field "$wf_file" emoji)"
+  desc="$(get_field "$wf_file" description)"
+
+  local share_text="${emoji:+$emoji }$name
+${desc:+$desc
+
+}Get it: curl -fsSL https://raw.githubusercontent.com/davehappyminion/clawflows/main/system/install.sh | bash && clawflows enable $name"
+
+  if [ "$copy_flag" = "--copy" ]; then
+    if command -v pbcopy >/dev/null 2>&1; then
+      printf '%s' "$share_text" | pbcopy
+      echo "Copied to clipboard!"
+    else
+      echo "$share_text"
+      echo ""
+      echo "(pbcopy not available — text printed above)"
+    fi
+  else
+    echo "$share_text"
+  fi
+}
+
 cmd_run() {
   local name="$1"
   local wf_file
@@ -1429,6 +1480,7 @@ case "$1" in
   open)      [ $# -ge 2 ] || die "usage: clawflows open <name>"; cmd_open "$2" ;;
   validate)  [ $# -ge 2 ] || die "usage: clawflows validate <name>"; cmd_validate "$2" ;;
   submit)    [ $# -ge 2 ] || die "usage: clawflows submit <name>"; cmd_submit "$2" ;;
+  share)     [ $# -ge 2 ] || die "usage: clawflows share <name>"; cmd_share "$2" "${3:-}" ;;
   backup)    cmd_backup "${2:-}" ;;
   restore)   cmd_restore "${2:-}" ;;
   update)    cmd_update ;;
