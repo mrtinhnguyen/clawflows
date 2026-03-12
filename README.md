@@ -20,17 +20,7 @@ Some examples:
 
 ## 🚀 Get Started In 10 Seconds
 
-### Option 1: Let your agent do it
-
-Send this message to your OpenClaw agent:
-
-```
-Install https://raw.githubusercontent.com/davehappyminion/clawflows/main/system/AGENT.md
-```
-
-Your agent will install everything and ask which workflows you want to enable.
-
-### Option 2: Manual install
+### Option 1: Direct install (recommended)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/davehappyminion/clawflows/main/system/install.sh \
@@ -38,6 +28,16 @@ curl -fsSL https://raw.githubusercontent.com/davehappyminion/clawflows/main/syst
 ```
 
 Then enable workflows with `clawflows enable <name>`.
+
+### Option 2: Let your agent do it
+
+Send this message to your OpenClaw agent:
+
+```
+Install https://raw.githubusercontent.com/davehappyminion/clawflows/main/system/AGENT.md
+```
+
+Your agent will install everything and ask which workflows you want to enable. Note: risk here that agent doesn't install everything fully - for 100% accuracy do Option 1.
 
 <br>
 
