@@ -339,7 +339,7 @@ https://github.com/nikilster/clawflows
 
 ## Acknowledgements
 
-Huge shoutout to [Kevin March](https://www.kevinmarch.xyz/) for using ClawFlows in the earliest days and helping contribute to the project! Also huge appreciate to everyone who has given me feedback including everyone at [Alchemy](https://www.alchemy.com/) (Sam, MC, Ben, Guillaume & more)! ❤️🙏
+Huge shoutout to [Kevin March](https://www.kevinmarch.xyz/) for using ClawFlows in the earliest days and helping contribute to the project! Also huge appreciate to everyone who has given me feedback including everyone at [Alchemy](https://www.alchemy.com/) (Sam, MC, Ben B, Guillaume, Ben Yu, Flor & more)! ❤️🙏
 
 
 ## License
