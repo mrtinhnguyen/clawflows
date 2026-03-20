@@ -1,6 +1,3 @@
-> [!IMPORTANT]
-> **This project hasn't launched yet!** If you stumbled here by accident, please close your eyes and slowly walk away. Nothing to see here. Just a minion and his bananas. We're only public to get feedback from a few people — you saw nothing. 🍌🙈
-
 # ⚡️ ClawFlows - Superpowers For Your Agent
 
 <p align="center">
