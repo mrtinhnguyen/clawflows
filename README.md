@@ -319,14 +319,20 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 | `clawflows list` | See all workflows and what's enabled |
 | `clawflows list enabled` | Show only enabled workflows |
 | `clawflows list available` | Show only available workflows |
-| `clawflows create` | Create a new custom workflow |
+| `clawflows dashboard` | Open workflows in your browser |
+| `clawflows create` | Create a new custom workflow (interactive) |
+| `clawflows create --from-json` | Create from JSON (for agents) |
 | `clawflows run <name>` | Run a workflow now |
+| `clawflows logs [name] [date]` | Show recent run logs |
 | `clawflows enable <name>` | Turn on a workflow |
 | `clawflows disable <name>` | Turn off a workflow |
 | `clawflows edit <name>` | Copy a community workflow to custom/ for editing |
 | `clawflows open <name>` | Open a workflow in your editor |
 | `clawflows validate <name>` | Check a workflow has required fields |
 | `clawflows submit <name>` | Submit a custom workflow for community review |
+| `clawflows share <name>` | Show shareable text for a workflow |
+| `clawflows backup` | Back up custom workflows and enabled list |
+| `clawflows restore` | Restore from a backup |
 | `clawflows update` | Pull the latest workflows from GitHub |
 | `clawflows sync-agent` | Refresh your agent's workflow list in AGENTS.md |
 | `clawflows uninstall` | Remove clawflows and clean up |
