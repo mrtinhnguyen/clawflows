@@ -1,5 +1,11 @@
 # Updates
 
+## Thu, Mar 20
+
+- 📧 **New check-email workflow** — A read-only inbox summary that categorizes your emails and shows what matters — no sneaky unsubscribing or archiving behind your back! Think of it as a banana you can look at but not peel 🍌
+- 🔄 **Safer essentials pack** — Swapped `process-email` for `check-email` in the Essentials Pack. New users get a gentle inbox overview instead of auto-unsubscribing from day one. You can always enable `process-email` later when you're ready to let the minion loose on your inbox!
+- 🚀 **Post-install try-it-now** — After installing, you now get a friendly nudge to run your first workflow right away. One command, instant banana gratification 🍌
+
 ## Wed, Mar 19
 
 - 🧹 **Removed `requires` field** — The `requires` frontmatter field never got used by a single workflow or the CLI, so we yeeted it. Workflows just describe what they need in plain text and the agent figures it out — no need for a formal dependency spec. One less thing to think about when creating a workflow, one more banana for simplicity! 🍌

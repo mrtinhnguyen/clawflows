@@ -61,7 +61,7 @@ Your agent will install everything and ask which workflows you want to enable. N
 |----------|------|--------------|
 | ✨ [send-morning-inspiration](workflows/available/community/send-morning-inspiration/) | 7am | Inspirational quote themed to your goals |
 | ☀️ [send-morning-briefing](workflows/available/community/send-morning-briefing/) | 7am | Weather, calendar, priorities, overnight alerts |
-| 📧 [process-email](workflows/available/community/process-email/) | 2-3x/day | Auto-unsubscribe, archive junk, summarize important |
+| 📧 [check-email](workflows/available/community/check-email/) | 2-3x/day | Categorize inbox and surface what needs attention |
 | 📅 [check-calendar](workflows/available/community/check-calendar/) | Morning + evening | 48-hour radar with conflicts and prep notes |
 
 <br>
@@ -136,6 +136,7 @@ Your agent will install everything and ask which workflows you want to enable. N
 
 | Workflow | What it does |
 |----------|-------------|
+| 📧 [check-email](workflows/available/community/check-email/) | Read-only inbox summary — categorizes emails and surfaces what matters |
 | 📧 [process-email](workflows/available/community/process-email/) | Auto-unsubscribes, archives noise, summarizes what needs attention |
 | 🔔 [check-follow-ups](workflows/available/community/check-follow-ups/) | Finds unanswered emails, promises you made, and balls about to drop |
 | 💬 [check-messages](workflows/available/community/check-messages/) | Unified triage across Slack, Discord, Telegram, WhatsApp |

@@ -240,7 +240,7 @@ fi
 # something useful right away. They can disable any of them anytime with:
 # clawflows disable <name>
 
-ESSENTIALS=(send-morning-inspiration send-morning-briefing process-email check-calendar)
+ESSENTIALS=(send-morning-inspiration send-morning-briefing check-email check-calendar)
 
 if ! $RESTORED_BACKUP && [ -t 1 ]; then
   echo ""
@@ -250,7 +250,7 @@ if ! $RESTORED_BACKUP && [ -t 1 ]; then
   echo ""
   printf "    ✨ ${BOLD}send-morning-inspiration${RESET}   Uplifting quote to start your day\n"
   printf "    ☀️ ${BOLD}send-morning-briefing${RESET}     Weather, calendar, priorities at 7am\n"
-  printf "    📧 ${BOLD}process-email${RESET}              Inbox triage — unsubscribe junk, surface important\n"
+  printf "    📧 ${BOLD}check-email${RESET}                Inbox summary — categorize and surface what matters\n"
   printf "    📅 ${BOLD}check-calendar${RESET}             48-hour radar with conflict detection\n"
   echo ""
   printf "  ${DIM}You can disable any of these anytime with: clawflows disable <name>${RESET}\n"
@@ -300,6 +300,17 @@ fi
 workflow_count=0
 if [ -d "$INSTALL_DIR/workflows/available" ]; then
   workflow_count=$( (ls -d "$INSTALL_DIR/workflows/available"/community/*/ "$INSTALL_DIR/workflows/available"/custom/*/ 2>/dev/null || true) | wc -l | tr -d ' ')
+fi
+
+# ── Try it now ───────────────────────────────────────────────────────────────
+
+if [ -t 1 ]; then
+  echo ""
+  printf "  ${BOLD}🚀 Try It Now${RESET}\n"
+  echo ""
+  printf "  See ClawFlows in action — run your first workflow:\n"
+  echo ""
+  printf "    ${CYAN}clawflows run check-calendar${RESET}\n"
 fi
 
 # ── Star prompt ──────────────────────────────────────────────────────────────
