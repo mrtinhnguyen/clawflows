@@ -21,11 +21,12 @@ Some examples:
 <br>
 
 
-Benefits
+### Benefits
 - **Easily Create Workflows** Plain text, easy to create, easy to read, easy to share.
 - **Reliable & Deterministic** Works every time. No scattered instructions across memory, heartbeat, and cron.
 - **Versioned & Reusable Workflows** Easily modify, save, and rollback your workflows
 - **Community Workflows** 100+ prebuilt workflows. Easily build & share workflows with your friends!
+
 
 ## 🚀 Get Started In 10 Seconds
 
@@ -46,7 +47,7 @@ Send this message to your OpenClaw agent:
 Install https://raw.githubusercontent.com/nikilster/clawflows/main/system/AGENT.md
 ```
 
-Your agent will install everything and ask which workflows you want to enable. Note: risk here that agent doesn't install everything fully - for 100% accuracy do Option 1.
+Your agent will install everything and ask which workflows you want to enable.
 
 <br>
 
