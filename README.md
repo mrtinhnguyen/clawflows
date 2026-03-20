@@ -7,7 +7,10 @@
   <img src="docs/header.png" alt="ClawFlows" width="100%" />
 </p>
 
-ClawFlows is a workflow system for OpenClaw with 100+ prebuilt community workflows you can enable in 1 click.
+ClawFlows is a powerful workflow system for OpenClaw. <br/>
+Includes 100+ prebuilt community workflows you can enable in 1 click.
+
+Have your OpenClaw become even more incredibly useful in 10 seconds.
 
 Some examples:
 - 📧 **Process my email** — Junk unsubscribed, noise archived, important stuff summarized. Your inbox, handled.
