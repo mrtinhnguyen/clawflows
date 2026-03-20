@@ -4,8 +4,8 @@
   <img src="docs/header.png" alt="ClawFlows" width="100%" />
 </p>
 
-<h2 align="center">A powerful workflow system for OpenClaw.</h2>
-<h3 align="center">101 prebuilt workflows. Enable in 1 click. Schedule with plain English.</h3>
+<h2 align="center">Powerful workflow system for OpenClaw</h2>
+<h3 align="center">101 prebuilt workflows you can enable in 1 click</h3>
 
 Some examples:
 - 📧 **Process my email** (9am, 1pm, 5pm) — Junk unsubscribed, noise archived, important stuff summarized. Your inbox, handled.
