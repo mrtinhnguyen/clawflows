@@ -10,14 +10,11 @@
 ClawFlows is a powerful workflow system for OpenClaw. <br/>
 Includes 101 prebuilt community workflows you can enable in 1 click.
 
-### Why ClawFlows instead of built-in memory/heartbeat/cron?
+### Why not just use memory files, heartbeat, and cron?
 
-- **101 ready-to-go workflows** — no writing prompts from scratch, just `enable` and go
-- **Battle-tested instructions** — each workflow has guardrails, safety rules, and output formats so the agent doesn't hallucinate steps or forget things
-- **Composable** — workflows can call each other, share data, and build on each other's output
-- **Portable** — your workflows live in version-controlled files, not locked inside one app's memory
-- **Community-powered** — browse what others have built, submit your own, `clawflows update` to get the latest
-- **Customizable** — `clawflows edit` any community workflow to make it yours without losing updates
+- **One workflow = one file.** Plain text, easy to create, easy to read, easy to share. No scattered instructions across memory files, heartbeat configs, and cron entries.
+- **Deterministic.** Each workflow has clear steps, guardrails, and output formats — so it runs correctly every time instead of hoping the agent remembers what to do.
+- **Dead simple scheduling and creation.** Add `schedule: "8am"` and it just runs. Plus 101 prebuilt workflows so you don't have to write anything from scratch.
 
 <br>
 
