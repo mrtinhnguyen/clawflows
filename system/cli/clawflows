@@ -429,7 +429,7 @@ cmd_list() {
     echo "  No workflows found."
     echo ""
     echo "  Make sure clawflows is installed correctly:"
-    echo "    curl -fsSL https://raw.githubusercontent.com/davehappyminion/clawflows/main/system/install.sh | bash"
+    echo "    curl -fsSL https://raw.githubusercontent.com/nikilster/clawflows/main/system/install.sh | bash"
     echo ""
     return
   fi
@@ -1133,7 +1133,7 @@ cmd_submit() {
   echo "  Next steps:"
   echo "  ─────────────────────────────────────────"
   echo "  1. Fork this repo (if you haven't already)"
-  echo "     https://github.com/davehappyminion/clawflows/fork"
+  echo "     https://github.com/nikilster/clawflows/fork"
   echo ""
   echo "  2. Commit and push your changes:"
   echo "     git add community-submissions/$name"
@@ -1141,7 +1141,7 @@ cmd_submit() {
   echo "     git push"
   echo ""
   echo "  3. Open a pull request:"
-  echo "     https://github.com/davehappyminion/clawflows/compare"
+  echo "     https://github.com/nikilster/clawflows/compare"
   echo ""
   echo "  Thanks for contributing!"
   echo ""
@@ -1172,7 +1172,7 @@ cmd_share() {
   local share_text="${emoji:+$emoji }$name
 ${desc:+$desc
 
-}Get it: curl -fsSL https://raw.githubusercontent.com/davehappyminion/clawflows/main/system/install.sh | bash && clawflows enable $name"
+}Get it: curl -fsSL https://raw.githubusercontent.com/nikilster/clawflows/main/system/install.sh | bash && clawflows enable $name"
 
   if [ "$copy_flag" = "--copy" ]; then
     if command -v pbcopy >/dev/null 2>&1; then

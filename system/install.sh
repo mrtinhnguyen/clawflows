@@ -32,7 +32,7 @@ set -euo pipefail
 # CLI commands, enabled workflows, how to create/share/run workflows.
 # The agent should re-read AGENTS.md after install to pick up the new info.
 
-REPO_URL="https://github.com/davehappyminion/clawflows.git"
+REPO_URL="https://github.com/nikilster/clawflows.git"
 BIN_DIR="$HOME/.local/bin"
 BIN_TARGET="$BIN_DIR/clawflows"
 
@@ -83,7 +83,7 @@ cat << 'LOGO'
 LOGO
 printf "${RESET}"
 printf "  ${BOLD}⚡️ Superpowers for your OpenClaw agent${RESET}\n"
-printf "  ${DIM}github.com/davehappyminion/clawflows${RESET}\n"
+printf "  ${DIM}github.com/nikilster/clawflows${RESET}\n"
 echo ""
 
 # ── 1. Clone or update ──────────────────────────────────────────────────────
@@ -308,7 +308,7 @@ echo ""
 printf "  ${YELLOW}⭐ If you're enjoying ClawFlows, a star would absolutely make my day!${RESET}\n"
 printf "  ${DIM}Dave Happy Minion worked really hard on this — it would mean a lot to him 🍌${RESET}\n"
 printf "  ${DIM}Plus, you'll get notified when new workflows drop!${RESET}\n"
-printf "    ${CYAN}https://github.com/davehappyminion/clawflows${RESET}\n"
+printf "    ${CYAN}https://github.com/nikilster/clawflows${RESET}\n"
 echo ""
 
 # ── Done ─────────────────────────────────────────────────────────────────────

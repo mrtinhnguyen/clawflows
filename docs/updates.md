@@ -168,7 +168,7 @@
 - 🚫 **Config files removed** — Dropped config.env — agent uses skills for device context instead.
 - 😎 **Emoji intro** — Added emojis and removed quotes from intro bullets.
 - 📝 **Simpler docs** — Simplified scheduling, creating, and CLI sections for non-technical users.
-- 🔗 **Repo URL fix** — Removed scripts, fixed repo URL to davehappyminion/clawflows.
+- 🔗 **Repo URL fix** — Removed scripts, fixed repo URL to nikilster/clawflows.
 - 📚 **Config & scripts docs** — Added optional config and scripts documentation.
 - 📝 **Intro line update** — Updated intro line.
 - 📝 **Intro emoji** — Updated intro line with emoji and examples lead-in.

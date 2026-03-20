@@ -827,7 +827,7 @@ function renderShareTab() {
     return;
   }
 
-  var tweetText = encodeURIComponent('My ClawFlows setup \uD83D\uDC7E\n\nhttps://github.com/davehappyminion/clawflows');
+  var tweetText = encodeURIComponent('My ClawFlows setup \uD83D\uDC7E\n\nhttps://github.com/nikilster/clawflows');
 
   // Build the off-screen image card
   var imgItems = '';
@@ -872,7 +872,7 @@ function renderShareTab() {
     '<div class="share-img-logo">My <span class="claw">Claw</span><span class="flows">Flows</span></div>' +
     '<div class="share-img-sub">' + enabled.length + ' workflow' + (enabled.length === 1 ? '' : 's') + ' enabled</div>' +
     '<div class="share-img-list">' + imgItems + '</div>' +
-    '<div class="share-img-footer"><span>github.com/davehappyminion/clawflows</span></div>';
+    '<div class="share-img-footer"><span>github.com/nikilster/clawflows</span></div>';
   document.body.appendChild(card);
 
   // Render to canvas
@@ -905,7 +905,7 @@ function renderShareTab() {
     document.getElementById('share-native-btn').addEventListener('click', function() {
       if (!shareBlob) { toast('Image not ready yet'); return; }
       var file = new File([shareBlob], 'clawflows-setup.png', { type: 'image/png' });
-      var shareData = { files: [file], title: 'My ClawFlows Setup', url: 'https://github.com/davehappyminion/clawflows' };
+      var shareData = { files: [file], title: 'My ClawFlows Setup', url: 'https://github.com/nikilster/clawflows' };
       if (navigator.canShare(shareData)) {
         navigator.share(shareData).catch(function() {});
       } else {
@@ -1315,7 +1315,7 @@ function openWfShare(name) {
   document.getElementById('wfShareTitle').textContent = 'Share ' + (w.emoji || '') + ' ' + w.name;
   document.getElementById('wfSharePreview').innerHTML = '<div class="loading">Generating image</div>';
 
-  var tweetText = encodeURIComponent((w.emoji ? w.emoji + ' ' : '') + w.name + (w.description ? ' — ' + w.description : '') + '\n\nhttps://github.com/davehappyminion/clawflows');
+  var tweetText = encodeURIComponent((w.emoji ? w.emoji + ' ' : '') + w.name + (w.description ? ' — ' + w.description : '') + '\n\nhttps://github.com/nikilster/clawflows');
   document.getElementById('wfShareX').href = 'https://x.com/intent/tweet?text=' + tweetText;
 
   document.getElementById('wfShareOverlay').classList.add('open');
@@ -1338,7 +1338,7 @@ function openWfShare(name) {
     '<div class="wf-share-img-name">' + esc(w.name) + '</div>' +
     '<div class="wf-share-img-desc">' + esc(w.description) + '</div>' +
     '<div class="wf-share-img-install"><span>clawflows enable</span> ' + esc(w.name) + '</div>' +
-    '<div class="wf-share-img-footer"><span>github.com/davehappyminion/clawflows</span></div>';
+    '<div class="wf-share-img-footer"><span>github.com/nikilster/clawflows</span></div>';
   document.body.appendChild(card);
 
   if (typeof html2canvas !== 'undefined') {

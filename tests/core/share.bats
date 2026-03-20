@@ -41,7 +41,7 @@ teardown() {
     run_clawflows share test-workflow
 
     assert_success
-    assert_output --partial "https://raw.githubusercontent.com/davehappyminion/clawflows/main/system/install.sh"
+    assert_output --partial "https://raw.githubusercontent.com/nikilster/clawflows/main/system/install.sh"
 }
 
 @test "share: non-existent workflow fails" {
