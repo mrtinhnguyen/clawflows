@@ -4,10 +4,10 @@
   <img src="docs/header.png" alt="ClawFlows" width="100%" />
 </p>
 
-<h3 align="center">Powerful workflow system for OpenClaw</h3>
-<h4 align="center">101 prebuilt workflows you can enable in 1 click</h4>
+**ClawFlows** is a powerful workflow system for OpenClaw.
+101 prebuilt workflows you can enable in 1 click
 
-### Some Examples
+Some examples
 - 📧 **Process my email** (9am, 1pm, 5pm) — Junk unsubscribed, noise archived, important stuff summarized. Your inbox, handled.
 - ☀️ **Morning briefing** (7am) — Weather, calendar, priorities, and fires — delivered before you open your eyes.
 - 🛏️ **Sleep mode** (10pm) — Every light off, music stopped, thermostat down, bedroom fan on. One command. Five systems. Done.
@@ -17,7 +17,7 @@
 <br>
 
 
-### Benefits
+Benefits
 - ✏️ **Easily Create Workflows** Plain text, easy to create, easy to read, easy to share.
 - ✅ **Reliable & Deterministic** Works every time. No scattered instructions across memory, heartbeat, and cron.
 - 🔄 **Versioned & Reusable Workflows** Easily modify, save, and rollback your workflows
