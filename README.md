@@ -44,7 +44,7 @@ Install https://raw.githubusercontent.com/nikilster/clawflows/main/system/AGENT.
 
 <br>
 
-## 🧞‍♂️ All 101 Workflows
+## 🧞‍♂️ All 100+ Workflows
 
 ### 🏠 Smart Home
 
