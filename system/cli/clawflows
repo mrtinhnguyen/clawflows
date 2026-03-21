@@ -49,78 +49,74 @@ _find_openclaw() {
 # ── Helpers ─────────────────────────────────────────────────────────────────
 
 cmd_help() {
-  cat <<'EOF'
+  local Y='\033[0;33m' B='\033[1m' D='\033[2m' C='\033[0;36m' R='\033[0m'
 
-  ⚡️ ClawFlows — Superpowers for your OpenClaw agent
+  printf "\n${Y}⚡️ ClawFlows${R} — Superpowers for your OpenClaw agent\n"
+  printf "\nUsage: ${B}clawflows${R} [command] [args]\n"
 
-  Usage: clawflows <command> [args]
+  printf "\n${B}📋 Browsing${R}\n"
+  printf "  ${Y}list${R}                 Show all workflows (enabled + available)\n"
+  printf "  ${Y}list enabled${R}         Show only enabled workflows\n"
+  printf "  ${Y}list available${R}       Show only available workflows\n"
+  printf "  ${Y}dashboard${R}            Open workflows in your browser (runs in background)\n"
+  printf "  ${Y}dashboard stop${R}       Stop the dashboard server\n"
+  printf "  ${Y}dashboard status${R}     Check if the dashboard is running\n"
 
-  📋 Browsing
-    list                 Show all workflows (enabled + available)
-    list enabled         Show only enabled workflows
-    list available       Show only available workflows
-    dashboard            Open workflows in your browser (runs in background)
-    dashboard stop       Stop the dashboard server
-    dashboard status     Check if the dashboard is running
+  printf "\n${B}✨ Creating${R}\n"
+  printf "  ${Y}create${R}               Create a new custom workflow (interactive)\n"
+  printf "  ${Y}create --from-json${R}   Create from JSON (for agents)\n"
 
-  ✨ Creating
-    create               Create a new custom workflow (interactive)
-    create --from-json   Create from JSON (for agents)
+  printf "\n${B}▶️  Running${R}\n"
+  printf "  ${Y}run ${D}<name>${R}           Run a workflow now (invokes your agent)\n"
+  printf "  ${Y}logs ${D}[name] [date]${R}   Show recent run logs\n"
 
-  ▶️  Running
-    run <name>           Run a workflow now (invokes your agent)
-    logs [name] [date]   Show recent run logs
+  printf "\n${B}🔧 Managing${R}\n"
+  printf "  ${Y}enable ${D}<name>${R}        Turn on a workflow (symlinks to enabled/)\n"
+  printf "  ${Y}disable ${D}<name>${R}       Turn off a workflow (removes symlink)\n"
+  printf "  ${Y}edit ${D}<name>${R}          Copy a community workflow to custom/ for editing\n"
+  printf "  ${Y}open ${D}<name>${R}          Open a workflow in your editor\n"
+  printf "  ${Y}validate ${D}<name>${R}      Check a workflow has required fields\n"
+  printf "  ${Y}submit ${D}<name>${R}        Submit a custom workflow for community review\n"
 
-  🔧 Managing
-    enable <name>        Turn on a workflow (symlinks to enabled/)
-    disable <name>       Turn off a workflow (removes symlink)
-    edit <name>          Copy a community workflow to custom/ for editing
-    open <name>          Open a workflow in your editor
-    validate <name>      Check a workflow has required fields
-    submit <name>        Submit a custom workflow for community review
+  printf "\n${B}📤 Sharing${R}\n"
+  printf "  ${Y}share ${D}<name>${R}         Show shareable text for a workflow\n"
+  printf "  ${Y}share ${D}<name> --copy${R}  Copy share text to clipboard (macOS)\n"
 
-  📤 Sharing
-    share <name>         Show shareable text for a workflow
-    share <name> --copy  Copy share text to clipboard (macOS)
+  printf "\n${B}💾 Backup${R}\n"
+  printf "  ${Y}backup${R}               Back up custom workflows and enabled list\n"
+  printf "  ${Y}restore${R}              Restore from a backup\n"
 
-  💾 Backup
-    backup               Back up custom workflows and enabled list
-    restore              Restore from a backup
+  printf "\n${B}🔄 Maintenance${R}\n"
+  printf "  ${Y}update${R}               Pull the latest workflows from GitHub\n"
+  printf "  ${Y}sync-agent${R}           Refresh your agent's workflow list in AGENTS.md\n"
+  printf "  ${Y}uninstall${R}            Remove clawflows and clean up\n"
 
-  🔄 Maintenance
-    update               Pull the latest workflows from GitHub
-    sync-agent           Refresh your agent's workflow list in AGENTS.md
-    uninstall            Remove clawflows and clean up
+  printf "\n${B}ℹ️  Info${R}\n"
+  printf "  ${Y}help, --help, -h${R}     Show this help\n"
 
-  ℹ️  Info
-    help, --help, -h     Show this help
+  printf "\n${B}Examples${R}\n"
+  printf "  ${C}clawflows run send-morning-briefing${R}     Run a workflow right now\n"
+  printf "  ${C}clawflows create${R}                        Create a new custom workflow\n"
+  printf "  ${C}clawflows list${R}                          See everything\n"
+  printf "  ${C}clawflows enable send-morning-briefing${R}  Turn on morning briefings\n"
+  printf "  ${C}clawflows edit send-morning-briefing${R}    Make your own version\n"
+  printf "  ${C}clawflows open send-morning-briefing${R}    Open in your editor\n"
+  printf "  ${C}clawflows disable check-x${R}               Turn off X/Twitter workflow\n"
+  printf "  ${C}clawflows validate my-workflow${R}          Check your workflow is valid\n"
+  printf "  ${C}clawflows submit my-workflow${R}            Share your workflow with the community\n"
+  printf "  ${C}clawflows update${R}                        Get new community workflows\n"
 
-  Examples
-    clawflows run send-morning-briefing     Run a workflow right now
-    clawflows create                        Create a new custom workflow
-    clawflows list                          See everything
-    clawflows enable send-morning-briefing  Turn on morning briefings
-    clawflows edit send-morning-briefing    Make your own version
-    clawflows open send-morning-briefing    Open in your editor
-    clawflows disable check-x               Turn off X/Twitter workflow
-    clawflows validate my-workflow          Check your workflow is valid
-    clawflows submit my-workflow            Share your workflow with the community
-    clawflows update                        Get new community workflows
-
-  How it works
-    Workflows live in ~/.openclaw/workspace/clawflows/workflows/
-    • available/community/  — from the repo (updated via git)
-    • available/custom/     — your own workflows (gitignored)
-    • enabled/              — symlinks to active workflows
-
-    When you enable a workflow, a symlink is created. Disable removes
-    the symlink — your custom workflows are never deleted.
-
-    Use 'edit' to copy a community workflow to custom/ so you
-    can modify it without losing changes on update. Use 'open' to
-    open any workflow in your editor.
-
-EOF
+  printf "\n${B}How it works${R}\n"
+  printf "  Workflows live in ~/.openclaw/workspace/clawflows/workflows/\n"
+  printf "  ${D}•${R} available/community/  — from the repo (updated via git)\n"
+  printf "  ${D}•${R} available/custom/     — your own workflows (gitignored)\n"
+  printf "  ${D}•${R} enabled/              — symlinks to active workflows\n"
+  printf "\n  When you enable a workflow, a symlink is created. Disable removes\n"
+  printf "  the symlink — your custom workflows are never deleted.\n"
+  printf "\n  Use 'edit' to copy a community workflow to custom/ so you\n"
+  printf "  can modify it without losing changes on update. Use 'open' to\n"
+  printf "  open any workflow in your editor.\n"
+  echo ""
 }
 
 die() { echo "error: $1" >&2; exit 1; }
@@ -1239,7 +1235,7 @@ cmd_run() {
   local oc
   oc="$(_find_openclaw)"
   if [ -n "$oc" ]; then
-    echo "Running $name..."
+    echo "Running $name — check your chat with your agent for results."
     echo ""
     "$oc" agent --agent main -m "Run the $name workflow by following $wf_file" | tee "$run_file"
   else
