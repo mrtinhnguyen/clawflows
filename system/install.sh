@@ -311,7 +311,7 @@ if ! $RESTORED_BACKUP && [ -t 1 ]; then
 
   if [ "$essentials_confirm" != "n" ] && [ "$essentials_confirm" != "N" ]; then
     for wf in "${ESSENTIALS[@]}"; do
-      if [ -d "$INSTALL_DIR/workflows/available/$wf" ]; then
+      if [ -d "$INSTALL_DIR/workflows/available/community/$wf" ] || [ -d "$INSTALL_DIR/workflows/available/custom/$wf" ]; then
         "$BIN_TARGET" enable "$wf" >/dev/null 2>/dev/null
       fi
     done
@@ -329,7 +329,7 @@ if [ -t 1 ]; then
   echo ""
   printf "  See ClawFlows in action — run your first workflow:\n"
   echo ""
-  printf "    ${CYAN}clawflows run check-calendar${RESET}\n"
+  printf "    ${CYAN}clawflows run send-morning-inspiration${RESET}\n"
 fi
 
 # ── Star prompt ──────────────────────────────────────────────────────────────
