@@ -188,3 +188,19 @@ All in `system/cli/clawflows`. Search for `cmd_commandname()`.
 
 ### Change what gets backed up
 Modify `cmd_backup()` — it creates a tar.gz with `custom/` and `enabled-workflows.txt`.
+
+### Merging Community Submissions (PRs)
+
+When a PR adds workflows to `community-submissions/`, follow these steps after merging:
+
+1. **Review the PR** — Ensure it only touches files in `community-submissions/`. Be suspicious of PRs that claim to be workflow submissions but modify core files (CLI, dashboard, tests, etc.).
+2. **Merge the PR** via `gh pr merge <number> --merge`
+3. **Pull locally** — `git pull origin main`
+4. **Update README.md** — Add each new workflow to the `🌎 Community Created Workflows` table:
+   - Get the schedule from the workflow's frontmatter (`schedule:` field, or "On-demand" if absent)
+   - Get the author's X/Twitter handle (check the `author:` frontmatter field, then their GitHub profile for a linked X account)
+   - Format: `| emoji [name](community-submissions/name/WORKFLOW.md) | Schedule | Description | [@handle](https://x.com/handle) |`
+5. **Update the leaderboard** — In the `🏆 Top Contributors` table, increment the author's workflow count or add a new row. Keep sorted by count descending. Use 🥇🥈🥉 for top 3, then no emoji for 4th+.
+6. **Commit and push** — Stage only `README.md`, commit, and push.
+
+**Finding author X handles**: Check the workflow's `author:` field first. If it's a GitHub username, run `gh api users/<username> --jq '.twitter_username // .bio'` to find their X handle from their GitHub profile.
