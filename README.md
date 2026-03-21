@@ -281,7 +281,7 @@ Install https://raw.githubusercontent.com/nikilster/clawflows/main/system/AGENT.
 |------|------------|-----------|
 | 🥇 1 | [@davehappyminion](https://x.com/davehappyminion) | 102 |
 | 🥈 2 | [@march_io](https://x.com/march_io) | 8 |
-| 🥉 3 | [You!](docs/creating-workflows.md) | ? |
+| 🥉 3 | [You!](#-creating-your-own) | |
 
 <br>
 
