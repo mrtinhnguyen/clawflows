@@ -9,7 +9,17 @@ author: nikilster @nikil
 
 Analyze how the user writes and create a writing style guide the agent references before drafting any content on their behalf.
 
-## 1. Discover Available Sources
+## 1. Explain the Process
+
+Start by telling the user how this works:
+
+> "Here's what I'm going to do: I'll read through your writing across different sources — emails, social media, blog posts, messages, whatever you have. Then I'll create a writing style guide with a section for each source (how you write emails vs tweets vs blog posts — they're usually different). Plus a general section that captures your overall voice.
+>
+> After that, whenever you ask me to write something, I'll check the guide and pick the section closest to what I'm writing. If there's no exact match, I'll use the general section as a base.
+>
+> Let me check what sources I can access..."
+
+## 2. Discover Available Sources
 
 First, figure out what writing sources you already have access to. Check for:
 
@@ -21,7 +31,7 @@ First, figure out what writing sources you already have access to. Check for:
 
 Use whatever discovery tools you have (CLI tools, browser, APIs) to check what's available. Don't guess — actually try.
 
-## 2. Confirm with the User
+## 3. Confirm with the User
 
 Tell the user what sources you found access to:
 
@@ -34,7 +44,7 @@ Tell the user what sources you found access to:
 
 **The more sources, the better the guide.** But even just sent emails alone is enough to start.
 
-## 3. Gather Writing Samples
+## 4. Gather Writing Samples
 
 For each confirmed source, pull as much writing as possible:
 
@@ -46,7 +56,7 @@ For each confirmed source, pull as much writing as possible:
 
 **Important:** Bias toward recent content — the user's voice evolves over time.
 
-## 4. Analyze Patterns
+## 5. Analyze Patterns
 
 For each content type, analyze:
 
@@ -64,7 +74,7 @@ For long-form content, also analyze:
 - **Storytelling** — do they use personal anecdotes? specific details?
 - **Persuasion** — do they argue with data, experience, authority, or emotion?
 
-## 5. Write the Style Guide
+## 6. Write the Style Guide
 
 Create `writing-style-guide.md` in the workspace with these sections:
 
@@ -83,7 +93,7 @@ For each source analyzed (e.g., Email, Social Media, Blog Posts), create a dedic
 - Example snippets showing the voice (anonymized — strip names and sensitive details)
 - **Rules for drafting** — a numbered list of concrete rules to follow when writing this type of content
 
-## 6. Wire It Up
+## 7. Wire It Up
 
 Make sure the agent reads the guide before writing anything on behalf of the user.
 
@@ -108,7 +118,7 @@ Before writing ANY content on behalf of [User] (emails, tweets, blog posts, mess
 
 The key idea: **always use General as the base, then layer on the section closest to what you're writing.** If there's no exact match (e.g., writing a LinkedIn post but you only have an X/Twitter section), use General + the closest format.
 
-## 7. Summarize
+## 8. Summarize
 
 Tell the user:
 - How many sources you analyzed (X emails, Y posts, Z articles)
