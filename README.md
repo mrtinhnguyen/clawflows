@@ -5,7 +5,7 @@
 </p>
 
 ### The powerful workflow system for OpenClaw
-Including 101 prebuilt workflows you can enable in 1 click 🎉
+Including 111 prebuilt workflows you can enable in 1 click 🎉
 <br/><br/>
 
 Some examples
@@ -264,14 +264,15 @@ Install https://raw.githubusercontent.com/nikilster/clawflows/main/system/AGENT.
 
 | Workflow | Schedule | What it does | Author |
 |----------|----------|-------------|--------|
-| 🔐 [check-aws-security](community-submissions/check-aws-security/WORKFLOW.md) | On-demand | Security audit for AWS infrastructure — EC2, security groups, IAM, Secrets Manager, CloudTrail | [@march_io](https://x.com/march_io) |
-| 💳 [audit-subscriptions](community-submissions/audit-subscriptions/WORKFLOW.md) | Monday 9am | Weekly audit of subscriptions, bills, and receipts from email | [@march_io](https://x.com/march_io) |
-| ✈️ [build-trip-prep](community-submissions/build-trip-prep/WORKFLOW.md) | On-demand | Comprehensive trip prep: visas, flights, lounges, ground transport, weather | [@march_io](https://x.com/march_io) |
-| 🎯 [check-deep-work](community-submissions/check-deep-work/WORKFLOW.md) | 8am | Protect focus days from meeting creep, flag violations, offer to decline | [@march_io](https://x.com/march_io) |
-| ✈️ [check-flight-status](community-submissions/check-flight-status/WORKFLOW.md) | 8am, 12pm, 4pm | Monitor flights for delays/changes via free APIs | [@march_io](https://x.com/march_io) |
-| 🎤 [send-call-prep](community-submissions/send-call-prep/WORKFLOW.md) | On-demand | Pre-meeting briefing 30min before external calls | [@march_io](https://x.com/march_io) |
-| 🥗 [track-nutrition](community-submissions/track-nutrition/WORKFLOW.md) | 7pm | Daily protein + calorie tracking with streak system | [@march_io](https://x.com/march_io) |
-| 📣 [support-friend-announcement](community-submissions/support-friend-announcement/WORKFLOW.md) | On-demand | Support a friend's X announcement by liking, reposting, and replying | [@march_io](https://x.com/march_io) |
+| 🔐 [check-aws-security](workflows/available/community/check-aws-security/WORKFLOW.md) | On-demand | Security audit for AWS infrastructure — EC2, security groups, IAM, Secrets Manager, CloudTrail | [@march_io](https://x.com/march_io) |
+| 💳 [audit-subscriptions](workflows/available/community/audit-subscriptions/WORKFLOW.md) | Monday 9am | Weekly audit of subscriptions, bills, and receipts from email | [@march_io](https://x.com/march_io) |
+| ✈️ [build-trip-prep](workflows/available/community/build-trip-prep/WORKFLOW.md) | On-demand | Comprehensive trip prep: visas, flights, lounges, ground transport, weather | [@march_io](https://x.com/march_io) |
+| 🧘 [check-deep-work](workflows/available/community/check-deep-work/WORKFLOW.md) | 8am | Protect focus days from meeting creep, flag violations, offer to decline | [@march_io](https://x.com/march_io) |
+| 🛫 [check-flight-status](workflows/available/community/check-flight-status/WORKFLOW.md) | 8am, 12pm, 4pm | Monitor flights for delays/changes via free APIs | [@march_io](https://x.com/march_io) |
+| 📋 [send-call-prep](workflows/available/community/send-call-prep/WORKFLOW.md) | On-demand | Pre-meeting briefing 30min before external calls | [@march_io](https://x.com/march_io) |
+| 🥗 [track-nutrition](workflows/available/community/track-nutrition/WORKFLOW.md) | 7pm | Daily protein + calorie tracking with streak system | [@march_io](https://x.com/march_io) |
+| 📣 [support-friend-announcement](workflows/available/community/support-friend-announcement/WORKFLOW.md) | On-demand | Support a friend's X announcement by liking, reposting, and replying | [@march_io](https://x.com/march_io) |
+| 🔄 [update-openclaw](workflows/available/community/update-openclaw/WORKFLOW.md) | 3am | Daily self-update of OpenClaw — pull latest version and restart | [@davehappyminion](https://x.com/davehappyminion) |
 
 <br>
 
@@ -279,7 +280,7 @@ Install https://raw.githubusercontent.com/nikilster/clawflows/main/system/AGENT.
 
 | Rank | Contributor | Workflows |
 |------|------------|-----------|
-| 🥇 1 | [@davehappyminion](https://x.com/davehappyminion) | 102 |
+| 🥇 1 | [@davehappyminion](https://x.com/davehappyminion) | 103 |
 | 🥈 2 | [@march_io](https://x.com/march_io) | 8 |
 | 🥉 3 | [You!](#-creating-your-own) | |
 
