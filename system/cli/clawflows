@@ -1102,6 +1102,12 @@ cmd_restore() {
       local name="$(basename "$wf")"
       [ "$name" = ".gitkeep" ] && continue
 
+      # Validate workflow name to prevent path traversal
+      if ! printf '%s' "$name" | grep -qE '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$'; then
+        echo "  Warning: skipping invalid workflow name in backup: '$name'"
+        continue
+      fi
+
       if [ -d "$CUSTOM_DIR/$name" ]; then
         ((skipped++)) || true
       else
@@ -1117,6 +1123,13 @@ cmd_restore() {
   if [ -f "$tmpdir/enabled-workflows.txt" ]; then
     while IFS= read -r name || [ -n "$name" ]; do
       [ -z "$name" ] && continue
+      
+      # Validate workflow name to prevent path traversal
+      if ! printf '%s' "$name" | grep -qE '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$'; then
+        echo "  Warning: skipping invalid workflow name in enabled list: '$name'"
+        continue
+      fi
+      
       if [ -L "$ENABLED_DIR/$name" ] || [ -d "$ENABLED_DIR/$name" ]; then
         continue  # already enabled
       fi
