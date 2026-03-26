@@ -1112,6 +1112,14 @@ cmd_restore() {
       [ "$name" = ".gitkeep" ] && continue
 
       # Validate workflow name to prevent path traversal
+      # Check for newlines first (same logic as validate_workflow_name)
+      case "$name" in
+        *$'\n'*)
+          echo "  Warning: skipping invalid workflow name in backup: '$name' (contains newline)"
+          continue
+          ;;
+      esac
+      
       if ! printf '%s' "$name" | grep -qE '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$'; then
         echo "  Warning: skipping invalid workflow name in backup: '$name'"
         continue
@@ -1134,6 +1142,14 @@ cmd_restore() {
       [ -z "$name" ] && continue
       
       # Validate workflow name to prevent path traversal
+      # Check for newlines first (same logic as validate_workflow_name)
+      case "$name" in
+        *$'\n'*)
+          echo "  Warning: skipping invalid workflow name in enabled list: '$name' (contains newline)"
+          continue
+          ;;
+      esac
+      
       if ! printf '%s' "$name" | grep -qE '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$'; then
         echo "  Warning: skipping invalid workflow name in enabled list: '$name'"
         continue
