@@ -826,6 +826,13 @@ _build_block() {
   lines+=("### Creating Workflows")
   lines+=("When the user wants to create a workflow, **read \`$CLAWFLOWS_DIR/docs/creating-workflows.md\` first and follow it.** It walks you through the interactive flow — asking questions, then creating with \`clawflows create --from-json\`.")
   lines+=("")
+  lines+=("**Workflow name requirements:**")
+  lines+=("- Must start with a letter or number")
+  lines+=("- Can contain only letters, numbers, dashes (-), and underscores (_)")
+  lines+=("- No dots, slashes, or other special characters")
+  lines+=("- Maximum 64 characters")
+  lines+=("- Examples: \`my-workflow\`, \`check_email_v2\`, \`daily123\`")
+  lines+=("")
   lines+=("**Important:** \`clawflows create\` auto-enables the workflow and updates AGENTS.md — do NOT run \`clawflows enable\` separately. After creating, **re-read your AGENTS.md** to pick up the new workflow. Never create workflow files directly — always use the CLI.")
   lines+=("")
   lines+=("### ⚠️ Never Write Directly to \`enabled/\`")
@@ -1364,15 +1371,16 @@ Submitted via \`clawflows submit\`." 2>/dev/null || true)"
 
 cmd_share() {
   local name="${1:-}"
-  [ -n "$name" ] && validate_workflow_name "$name"
   local copy_flag="${2:-}"
 
   [ -n "$name" ] || die "usage: clawflows share <name>"
 
-  # Handle --copy as first or second arg
+  # Handle --copy as first or second arg BEFORE validation
   if [ "$name" = "--copy" ]; then
     die "usage: clawflows share <name> [--copy]"
   fi
+
+  validate_workflow_name "$name"
 
   local source_dir
   source_dir="$(_find_workflow "$name")"
