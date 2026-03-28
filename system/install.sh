@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Wrap in main() so the entire script is downloaded before execution begins.
+# Without this, `curl | bash` streams into bash line-by-line, and any command
+# that reads stdin (like git) can consume part of the script, causing skipped
+# lines and partial installs.
+
+main() {
+
 # ── ClawFlows Installer ─────────────────────────────────────────────────────
 #
 # ClawFlows gives your OpenClaw agent superpowers — 50+ pre-built workflows
@@ -91,14 +98,14 @@ command -v git >/dev/null 2>&1 || err "git is required but not installed"
 
 if [ -d "$INSTALL_DIR/.git" ]; then
   info "Pulling latest workflows..."
-  git -C "$INSTALL_DIR" pull --ff-only --quiet 2>/dev/null || warn "Could not pull latest (offline or diverged)"
+  git -C "$INSTALL_DIR" pull --ff-only --quiet </dev/null 2>/dev/null || warn "Could not pull latest (offline or diverged)"
   ok "Updated"
 else
   if [ -d "$INSTALL_DIR" ]; then
     err "$INSTALL_DIR already exists but is not a git repo. Remove it first."
   fi
   info "Downloading workflows..."
-  git clone --quiet "$REPO_URL" "$INSTALL_DIR"
+  git clone --quiet "$REPO_URL" "$INSTALL_DIR" </dev/null
   ok "Cloned to $INSTALL_DIR"
 fi
 
@@ -353,3 +360,7 @@ if ! [ -t 1 ]; then
   echo "'run my morning briefing', or 'what workflows do I have?' and you'll find"
   echo "the matching workflow in AGENTS.md to run."
 fi
+
+} # end main
+
+main "$@"
