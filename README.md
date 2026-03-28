@@ -6,6 +6,8 @@
 
 ### The powerful workflow system for OpenClaw
 Including 112 prebuilt workflows you can enable in 1 click 🎉
+
+🌐 [clawflows.ai](https://clawflows.ai) · 📋 [Updates](https://github.com/nikilster/clawflows/blob/main/docs/updates.md)
 <br/><br/>
 
 Some examples
