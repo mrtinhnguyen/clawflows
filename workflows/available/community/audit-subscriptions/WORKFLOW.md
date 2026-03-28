@@ -4,9 +4,6 @@ emoji: "💳"
 description: Weekly audit of subscriptions, bills, and receipts from email
 schedule: "9am monday"
 author: kevinmarch
-requires:
-  - name: email
-    description: Email access (Gmail, Outlook, etc.)
 ---
 
 # Audit Subscriptions

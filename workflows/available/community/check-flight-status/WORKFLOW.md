@@ -4,9 +4,6 @@ emoji: "🛫"
 description: Monitor upcoming flights for delays and changes
 schedule: "8am, 12pm, 4pm"
 author: kevinmarch
-requires:
-  - name: calendar
-    description: Calendar with flight events
 ---
 
 # Check Flight Status

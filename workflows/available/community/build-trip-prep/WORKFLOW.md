@@ -3,9 +3,6 @@ name: build-trip-prep
 emoji: "✈️"
 description: Comprehensive trip preparation packet
 author: kevinmarch
-requires:
-  - name: calendar
-    description: Google Calendar, Apple Calendar, or similar
 ---
 
 # Build Trip Prep

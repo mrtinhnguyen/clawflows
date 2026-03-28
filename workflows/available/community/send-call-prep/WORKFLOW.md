@@ -3,9 +3,6 @@ name: send-call-prep
 emoji: "📋"
 description: Pre-meeting briefing 30 minutes before external calls
 author: kevinmarch
-requires:
-  - name: calendar
-    description: Google Calendar, Apple Calendar, or similar
 ---
 
 # Send Call Prep

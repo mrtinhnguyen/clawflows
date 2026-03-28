@@ -4,7 +4,6 @@ emoji: "🥗"
 description: Evening nutrition check-in with weekly trends
 schedule: "7pm"
 author: kevinmarch
-requires: []
 ---
 
 # Track Nutrition
