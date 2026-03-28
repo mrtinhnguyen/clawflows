@@ -412,7 +412,7 @@ Huge shoutout to [Kevin March](https://www.kevinmarch.xyz/) for using ClawFlows 
 
 Thanks to everyone who has contributed to ClawFlows!
 
-[kevhelperbot](https://github.com/kevhelperbot) · [Matt Van Horn](https://github.com/mvanhorn) · [Rafael M](https://github.com/TerminalsandCoffee) · [hnshah](https://github.com/hnshah)
+[kevhelperbot](https://github.com/kevhelperbot) · [Matt Van Horn](https://github.com/mvanhorn) · [Rafael M](https://github.com/TerminalsandCoffee) · [hnshah](https://github.com/hnshah) · [Ben (intenex)](https://github.com/intenex)
 
 Want to contribute? Check out [Creating Your Own Workflows](docs/creating-workflows.md) or open a PR!
 
