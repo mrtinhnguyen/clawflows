@@ -8,9 +8,7 @@
 Including 112 prebuilt workflows you can enable in 1 click 🎉
 
 <p align="center">
-  <a href="https://clawflows.ai"><img src="https://img.shields.io/badge/Website-clawflows.ai-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website" /></a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/nikilster/clawflows/blob/main/docs/updates.md"><img src="https://img.shields.io/badge/Updates-What's_New-green?style=for-the-badge&logo=rocket&logoColor=white" alt="Updates" /></a>
+  <a href="https://clawflows.ai">🌐 Website</a> · <a href="https://github.com/nikilster/clawflows/blob/main/docs/updates.md">📋 What's New</a>
 </p>
 
 Some examples
