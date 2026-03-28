@@ -4,25 +4,30 @@
   <img src="docs/header.png" alt="ClawFlows" width="100%" />
 </p>
 
-### The powerful workflow system for OpenClaw
-Including 113 prebuilt workflows you can enable in 1 click 🎉
+<p align="center">
+  <b>The powerful workflow system for OpenClaw</b><br>
+  113 prebuilt workflows you can enable in 1 click 🎉<br><br>
+  <a href="https://clawflows.ai">🌐 Website</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/nikilster/clawflows/blob/main/docs/updates.md">📋 What's New</a>
+</p>
 
-[🌐 Website](https://clawflows.ai) · [📋 What's New](https://github.com/nikilster/clawflows/blob/main/docs/updates.md)
+### Some examples
 
-Some examples
-- 📧 **Process my email** (9am, 1pm, 5pm) — Junk unsubscribed, noise archived, important stuff summarized. Your inbox, handled.
-- ☀️ **Morning briefing** (7am) — Weather, calendar, priorities, and fires — delivered before you open your eyes.
-- 🛏️ **Sleep mode** (10pm) — Every light off, music stopped, thermostat down, bedroom fan on. One command. Five systems. Done.
-- 🎯 **Prep for my meeting** (every 30 min) — Attendees researched, history pulled, talking points written. Ready before you are.
-- 🔨 **Build something while I sleep** (midnight) — Picks an idea, builds it overnight, hands you a finished project in the morning.
+| | Workflow | Schedule | What it does |
+|---|----------|----------|-------------|
+| 📧 | **Process my email** | 9am, 1pm, 5pm | Junk unsubscribed, noise archived, important stuff summarized. Your inbox, handled. |
+| ☀️ | **Morning briefing** | 7am | Weather, calendar, priorities, and fires — delivered before you open your eyes. |
+| 🛏️ | **Sleep mode** | 10pm | Every light off, music stopped, thermostat down, bedroom fan on. One command. Done. |
+| 🎯 | **Prep for my meeting** | Every 30 min | Attendees researched, history pulled, talking points written. Ready before you are. |
+| 🔨 | **Build while I sleep** | Midnight | Picks an idea, builds it overnight, hands you a finished project in the morning. |
 
-<br/>
+<br>
 
-Benefits
-- ✏️ **Easily Create Workflows** Plain text, easy to create, easy to read, easy to share.
-- ✅ **Reliable & Deterministic** Works every time. No scattered instructions across memory, heartbeat, and cron.
-- 🔄 **Versioned & Reusable Workflows** Easily modify, save, and rollback your workflows
-- 🌍 **Community Workflows** 100+ prebuilt workflows. Easily build & share workflows with your friends!
+### Why ClawFlows?
+
+- ✏️ **Easily Create Workflows** — Plain text, easy to create, easy to read, easy to share.
+- ✅ **Reliable & Deterministic** — Works every time. No scattered instructions across memory, heartbeat, and cron.
+- 🔄 **Versioned & Reusable** — Easily modify, save, and rollback your workflows.
+- 🌍 **Community Workflows** — 100+ prebuilt workflows. Easily build & share workflows with your friends!
 
 <br/>
 
